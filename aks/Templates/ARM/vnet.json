@@ -1,0 +1,75 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.29.47.4906",
+      "templateHash": "5872070167239753276"
+    }
+  },
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "virtualNetworkName": {
+      "type": "string"
+    },
+    "virtualNetworkAddressPrefix": {
+      "type": "string"
+    },
+    "snetAddressPrefix": {
+      "type": "string"
+    },
+    "snetName": {
+      "type": "string"
+    },
+    "subnets": {
+      "type": "array",
+      "defaultValue": [
+        {
+          "name": "[parameters('snetName')]",
+          "addressPrefix": "[parameters('snetAddressPrefix')]"
+        }
+      ]
+    }
+  },
+  "variables": {
+    "copy": [
+      {
+        "name": "subnetsToCreate",
+        "count": "[length(parameters('subnets'))]",
+        "input": {
+          "name": "[parameters('subnets')[copyIndex('subnetsToCreate')].name]",
+          "properties": {
+            "addressPrefix": "[parameters('subnets')[copyIndex('subnetsToCreate')].addressPrefix]"
+          }
+        }
+      }
+    ]
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2022-11-01",
+      "name": "[parameters('virtualNetworkName')]",
+      "location": "[parameters('location')]",
+      "tags": {
+        "Department": "development",
+        "Application": "aksPoc",
+        "Owner": "engineering",
+        "OTAP": "test",
+        "Service": "aksCluster"
+      },
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('virtualNetworkAddressPrefix')]"
+          ]
+        },
+        "subnets": "[variables('subnetsToCreate')]"
+      }
+    }
+  ]
+}
