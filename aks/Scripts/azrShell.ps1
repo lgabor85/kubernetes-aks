@@ -27,7 +27,7 @@ Else {
     Write-Host "Picking Shell Type"
     
     $StartShellType = SelectShellType
-    $default = "/home/lgabor/git/AzureEngineer/aks"
+    $default = "/home/lgabor/git/kubernetes-aks/aks/"
     if (!($ScriptsLocation = Read-Host "Enter the path where your local scripts are located. Press Enter to accept the default = [$default]")) { $ScriptsLocation = $default }
     Write-Host "updating container image..."
     docker pull mcr.microsoft.com/azure-cloudshell:latest

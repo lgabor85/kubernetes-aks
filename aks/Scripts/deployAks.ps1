@@ -31,10 +31,10 @@
 
 # Static parameters that are hardcoded in the script
 [string]$AzModulePath = '../Modules' # Replace with the path to the Az modules
-[string]$templateFile = '../Templates/ARM/myAksInfra.json' # Replace with the path to the ARM or BICEP template file
-[string]$vnetTemplateFile = '../Templates/ARM/vnet.json' # Replace with the path to the ARM or BICEP template file
-[string]$natTemplateFile = '../Templates/ARM/nat.json' # Replace with the path to the ARM or BICEP template file
-[string]$miTemplateFileName = '../Templates/ARM/mi.json' # Replace with the path to the ARM or BICEP template file
+[string]$templateFile = '../Templates/BICEP/myAksInfra.bicep' # Replace with the path to the ARM or BICEP template file
+[string]$vnetTemplateFile = '../Templates/BICEP/vnet.bicep' # Replace with the path to the ARM or BICEP template file
+[string]$natTemplateFile = '../Templates/BICEP/nat.bicep' # Replace with the path to the ARM or BICEP template file
+[string]$miTemplateFileName = '../Templates/BICEP/mi.bicep' # Replace with the path to the ARM or BICEP template file
 [string]$vnetRange = '172.2.0.0/16' # Replace with the desired virtual network address range
 [string]$snetRange = '172.2.20.0/24' # Replace with the desired subnet address range
 [string]$tenantId = (Get-AzKeyVaultSecret -VaultName $keyvaultName -Name 'tenantId' -AsPlainText)
