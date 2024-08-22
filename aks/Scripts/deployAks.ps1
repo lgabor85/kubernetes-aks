@@ -650,11 +650,12 @@ Write-Output "------------------------------------------------------------"
 Write-Output "|Step 4: Configure the managed identity for the AKS cluster|"
 Write-Output "------------------------------------------------------------`n"
 
+
 $vnetResourceGroupName = (Get-AzVirtualNetwork -Name $vnetName).ResourceGroupName
 $vnet = Get-AzVirtualNetwork -ResourceGroupName $vnetResourceGroupName -Name $vnetName
 $snetId = (Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $snetName).Id
 
-
+# 
 $choiceMi = Read-Host -Prompt "Do you want to use an existing (e) managed identity or create one (n)? (Type 'e' or 'n')"
 
 if ($choiceMi -eq "e") {
