@@ -541,7 +541,8 @@ if ($choiceNat -eq "n") {
 
         $natGatewayResourceGroup = Read-Host -Prompt "Name of the NAT gateway resource group"
 
-    } elseif ($choiceConfigureNat -eq "e") {
+    }
+    elseif ($choiceConfigureNat -eq "e") {
 
         $natGatewayResourceGroup = Read-Host -Prompt "Name of the NAT gateway resource group"
         $natGatewayName = Get-AzNatGateway -ResourceGroupName $natGatewayResourceGroup | Select-Object Name -ExpandProperty Name
@@ -663,26 +664,27 @@ if ($choiceMi -eq "e") {
     $managedIdentityName = Get-AzUserAssignedIdentity -ResourceGroupName $rgName | Select-Object Name -ExpandProperty Name
 
 }
+else {
+    try {
 
-try {
-
-    Write-Progress -Activity "Configuring the managed identity..." -Status "$counter/5" -PercentComplete ($counter / 5 * 100)
-
-
-    aksMiConfig -rgName $rgName `
-        -miTemplateFile $miTemplateFileName `
-        -managedIdentityName $managedIdentityName `
-        -vnetName $vnetName `
-        -subnetName $snetName
-
-
-}
-
-catch {
-
-    Write-Error $_.Exception.Message
-    Exit
-
+        Write-Progress -Activity "Configuring the managed identity..." -Status "$counter/5" -PercentComplete ($counter / 5 * 100)
+    
+    
+        aksMiConfig -rgName $rgName `
+            -miTemplateFile $miTemplateFileName `
+            -managedIdentityName $managedIdentityName `
+            -vnetName $vnetName `
+            -subnetName $snetName
+    
+    
+    }
+    
+    catch {
+    
+        Write-Error $_.Exception.Message
+        Exit
+    
+    }    
 }
 
 $managedIdentityResourceId = (Get-AzUserAssignedIdentity -ResourceGroupName $rgName -Name $managedIdentityName).Id
