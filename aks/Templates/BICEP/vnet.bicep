@@ -23,9 +23,9 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-11-01' = {
   name: virtualNetworkName
   location: location
   tags: {
-    Department: 'development'
+    Department: 'engineering'
     Application: 'aksPoc'
-    Owner: 'engineering'
+    Owner: 'development'
     OTAP: 'test'
     Service: 'aksCluster'
   }

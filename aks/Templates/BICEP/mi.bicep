@@ -15,7 +15,7 @@ resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-
   name: managedIdentityName
   location: location
   tags: {
-    Department: 'development'
+    Department: 'engineering'
     Application: 'aksPoc'
     Owner: 'development'
     OTAP: 'test'

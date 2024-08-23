@@ -29,14 +29,14 @@
 [string]$secretName = Read-Host -Prompt "Enter the secret(ssh key) name stored in the key vault"
 
 
-# Static parameters that are hardcoded in the script
-[string]$AzModulePath = '../Modules' # Replace with the path to the Az modules
-[string]$templateFile = '../Templates/BICEP/myAksInfra.bicep' # Replace with the path to the ARM or BICEP template file
-[string]$vnetTemplateFile = '../Templates/BICEP/vnet.bicep' # Replace with the path to the ARM or BICEP template file
-[string]$natTemplateFile = '../Templates/BICEP/nat.bicep' # Replace with the path to the ARM or BICEP template file
-[string]$miTemplateFileName = '../Templates/BICEP/mi.bicep' # Replace with the path to the ARM or BICEP template file
-[string]$vnetRange = '172.2.0.0/16' # Replace with the desired virtual network address range
-[string]$snetRange = '172.2.20.0/24' # Replace with the desired subnet address range
+# Static parameters that are hardcoded in the script. Replace with your values
+[string]$AzModulePath = '../Modules'
+[string]$templateFile = '../Templates/BICEP/myAksInfra.bicep'
+[string]$vnetTemplateFile = '../Templates/BICEP/vnet.bicep'
+[string]$natTemplateFile = '../Templates/BICEP/nat.bicep'
+[string]$miTemplateFileName = '../Templates/BICEP/mi.bicep'
+[string]$vnetRange = '172.2.0.0/16'
+[string]$snetRange = '172.2.20.0/24' 
 [string]$tenantId = (Get-AzKeyVaultSecret -VaultName $keyvaultName -Name 'tenantId' -AsPlainText)
 [string]$subscriptionId = (Get-AzKeyVaultSecret -VaultName $keyvaultName -Name 'subscriptionId' -AsPlainText)
 [string]$groupObjectId = (Get-AzKeyVaultSecret -VaultName $keyvaultName -Name 'groupObjectId' -AsPlainText)

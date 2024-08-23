@@ -244,9 +244,9 @@ resource dataCollectionRules_MSCI_westeurope_name_resource 'Microsoft.Insights/d
   location: location
   tags: {
     Application: 'aksPoc'
-    Department: 'development'
+    Department: 'engineering'
     OTAP: 'test'
-    Owner: 'engineering'
+    Owner: 'development'
     Service: 'aksCluster'
   }
   kind: 'Linux'

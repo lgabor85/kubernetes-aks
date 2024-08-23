@@ -10,9 +10,9 @@ resource publicip 'Microsoft.Network/publicIPAddresses@2021-05-01' = {
   name: publicIpName
   location: location
   tags: {
-    Department: 'development'
+    Department: 'engineering'
     Application: 'aksPoc'
-    Owner: 'engineering'
+    Owner: 'development'
     OTAP: 'test'
     Service: 'aksCluster'
   }
