@@ -174,7 +174,7 @@
                 }
             },
             "properties": {
-                "kubernetesVersion": "1.27",
+                "kubernetesVersion": "1.31",
                 "dnsPrefix": "[concat(parameters('aksClusterName'), '-', parameters('location'))]",
                 "agentPoolProfiles": [
                     {
