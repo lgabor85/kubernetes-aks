@@ -174,7 +174,7 @@
                 }
             },
             "properties": {
-                "kubernetesVersion": "1.31",
+                "kubernetesVersion": "1.29.7",
                 "dnsPrefix": "[concat(parameters('aksClusterName'), '-', parameters('location'))]",
                 "agentPoolProfiles": [
                     {
@@ -191,7 +191,7 @@
                         "powerState": {
                             "code": "Running"
                         },
-                        "orchestratorVersion": "1.27",
+                        "orchestratorVersion": "1.29.7",
                         "enableNodePublicIP": false,
                         "mode": "System",
                         "enableEncryptionAtHost": false,
@@ -743,7 +743,7 @@
                 "powerState": {
                     "code": "Running"
                 },
-                "orchestratorVersion": "1.27",
+                "orchestratorVersion": "1.29.7",
                 "enableNodePublicIP": false,
                 "mode": "System",
                 "enableEncryptionAtHost": false,

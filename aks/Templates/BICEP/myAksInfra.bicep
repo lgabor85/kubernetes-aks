@@ -85,7 +85,7 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2023-01-01' = {
     }
   }
   properties: {
-    kubernetesVersion: '1.27'
+    kubernetesVersion: '1.29.7'
     dnsPrefix: '${aksClusterName}-${location}'
     agentPoolProfiles: [
       {
@@ -102,7 +102,7 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2023-01-01' = {
         powerState: {
           code: 'Running'
         }
-        orchestratorVersion: '1.31'
+        orchestratorVersion: '1.29.7'
         enableNodePublicIP: false
         mode: 'System'
         enableEncryptionAtHost: false
@@ -631,7 +631,7 @@ resource aksClusterName_nodepool1 'Microsoft.ContainerService/managedClusters/ag
     powerState: {
       code: 'Running'
     }
-    orchestratorVersion: '1.27'
+    orchestratorVersion: '1.29.7'
     enableNodePublicIP: false
     mode: 'System'
     enableEncryptionAtHost: false
